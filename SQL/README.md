@@ -1,1 +1,1 @@
-"SQL Series solve" 
+# SQL Series solve
