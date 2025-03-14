@@ -72,6 +72,6 @@ insert into xyz (emp_id,emp_name,emp_salary) values(1,"adam",25000),(2,"bob",300
 -- default 
 
 select *from college;
-show databases;
+-- show databases;
 
 
