@@ -97,3 +97,72 @@ right join course as c
 on s.student_id = c.student_id;
 
 
+-- Full join
+
+select *
+from student as s
+left join course as c
+on s.student_id = c.student_id
+union
+select *
+from student as s
+right join course as c
+on s.student_id = c.student_id;
+
+
+-- Left exclusive join
+select s.student_id,s.name,c.course
+from student as s
+left join course as c
+on s.student_id = c.student_id
+where c.student_id is null;
+
+
+-- Right exclusive join
+select *
+from student as s
+right join course as c
+on s.student_id = c.student_id
+where s.student_id is null;
+
+-- Full exclusive join
+-- jegula common nai ogula eksathe
+select s.student_id,s.name,null as course
+from student as s
+left join course as c
+on s.student_id = c.student_id
+where c.student_id is null
+union
+select c.student_id, NULL AS name, c.course
+from student as s
+right join course as c
+on s.student_id = c.student_id
+where s.student_id is null;
+
+
+-- self join
+CREATE TABLE Employee (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    manager_id INT
+);
+
+INSERT INTO Employee (id, name, manager_id) VALUES
+(101, 'adam', 103),
+(102, 'bob', 104),
+(103, 'casey', NULL),
+(104, 'donald', 103);
+
+SELECT * FROM Employee;
+
+select a.name as manager_name,b.name 
+from Employee as a
+join employee as b
+on a.id = b.manager_id;
+-- casey -> adam
+-- casey -> donald -> bob
+
+-- All join finished
+
+
+
