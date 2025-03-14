@@ -47,4 +47,20 @@ select rollno,name
 from student
 where rollno in (select rollno from student where rollno % 2 = 0);
 
+-- find the max marks from the students of delhi
+-- using from subqueries
 
+select name,max(marks)
+from ( select * from student where city = "Delhi") as temp;
+
+SELECT name, marks
+FROM student
+WHERE city = 'Delhi' AND marks = (SELECT MAX(marks) FROM student WHERE city = 'Delhi');
+
+SELECT name, marks
+FROM student
+WHERE city = 'Delhi' AND marks = (SELECT MAX(marks) FROM student WHERE city = 'Delhi');
+
+
+select (select max(marks) from student),name
+from student;
