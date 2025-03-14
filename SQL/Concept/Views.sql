@@ -27,4 +27,3 @@ select rollno,name,marks from student;
 select * from view1 where marks > 90 ;
 
 drop view view1;
-
